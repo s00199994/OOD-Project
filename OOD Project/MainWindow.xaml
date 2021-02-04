@@ -1,0 +1,22 @@
+﻿<Window x:Class="OOD_Project.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OOD_Project"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="50,20,0,0" TextWrapping="Wrap" Text="Formula 1 App" VerticalAlignment="Top" Height="28" Width="143" FontSize="20" FontWeight="Bold"/>
+        <TextBlock HorizontalAlignment="Left" Margin="92,74,0,0" TextWrapping="Wrap" Text="Teams" VerticalAlignment="Top" FontWeight="Bold" Width="46" Height="22" FontSize="14"/>
+        <ListBox x:Name="lbxTeams" HorizontalAlignment="Left" Height="178" Margin="92,99,0,0" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.492,0.491"/>
+        <TextBlock HorizontalAlignment="Left" Margin="489,74,0,0" TextWrapping="Wrap" Text="Most Successful Drivers" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <ListBox x:Name="lbxDrivers" HorizontalAlignment="Left" Height="178" Margin="489,99,0,0" VerticalAlignment="Top" Width="156"/>
+        <TextBlock HorizontalAlignment="Left" Margin="355,290,0,0" TextWrapping="Wrap" Text="Quiz" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <RadioButton x:Name="btnA" Content="[OPTION A]" HorizontalAlignment="Left" Margin="102,368,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <RadioButton x:Name="btnB" Content="[OPTION B]" HorizontalAlignment="Left" Margin="337,368,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <RadioButton x:Name="btnC" Content="[OPTION C]" HorizontalAlignment="Left" Margin="560,371,0,0" VerticalAlignment="Top" FontSize="14"/>
+        <TextBlock x:Name="tbxQuestion" HorizontalAlignment="Left" Margin="337,328,0,0" TextWrapping="Wrap" Text="QUESTION" VerticalAlignment="Top" Width="113" FontSize="14" FontWeight="Bold"/>
+
+    </Grid>
+</Window>
