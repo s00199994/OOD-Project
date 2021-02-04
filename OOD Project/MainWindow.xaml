@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OOD_Project"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="50,20,0,0" TextWrapping="Wrap" Text="Formula 1 App" VerticalAlignment="Top" Height="28" Width="143" FontSize="20" FontWeight="Bold"/>
         <TextBlock HorizontalAlignment="Left" Margin="92,74,0,0" TextWrapping="Wrap" Text="Teams" VerticalAlignment="Top" FontWeight="Bold" Width="46" Height="22" FontSize="14"/>

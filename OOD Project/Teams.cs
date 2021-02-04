@@ -6,19 +6,24 @@ using System.Threading.Tasks;
 
 namespace OOD_Project
 {
-    class Teams
+    class Team
     {
         public string TeamName { get; set; }
 
         public int YearFormed { get; set; }
 
-        public string Principal { get; set; }
+        public int ChampionshipsWon { get; set; }
 
-        public Teams(string teamName, int yearFormed, string principal)
+        public Team(string teamName, int yearFormed, int championshipsWon)
         {
             TeamName = teamName;
             YearFormed = yearFormed;
-            Principal = principal;
+            ChampionshipsWon = championshipsWon;
+        }
+
+        public Team()
+        {
+
         }
 
         public override string ToString()
