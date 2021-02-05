@@ -14,11 +14,15 @@ namespace OOD_Project
 
         public int ChampionshipsWon { get; set; }
 
+        public List<Drivers> DriversList { get; set; }
+
         public Team(string teamName, int yearFormed, int championshipsWon)
         {
             TeamName = teamName;
             YearFormed = yearFormed;
             ChampionshipsWon = championshipsWon;
+
+            DriversList = new List<Drivers>();
         }
 
         public Team()
