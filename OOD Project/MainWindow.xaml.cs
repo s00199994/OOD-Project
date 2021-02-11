@@ -41,21 +41,6 @@ namespace OOD_Project
             Team t9 = new Team("Williams", 1977, 9);
             Team t10 = new Team("Alpine", 1977, 2);
 
-            // Adding all teams to a list
-            allTeams.Add(t1);
-            allTeams.Add(t2);
-            allTeams.Add(t3);
-            allTeams.Add(t4);
-            allTeams.Add(t5);
-            allTeams.Add(t6);
-            allTeams.Add(t7);
-            allTeams.Add(t8);
-            allTeams.Add(t9);
-            allTeams.Add(t10);
-
-            // Using the list to populate the text box
-            lbxTeams.ItemsSource = allTeams;
-
             // Creating driver objects
 
             Drivers d1 = new Drivers("Lewis Hamilton", 266, 165, true);
@@ -109,6 +94,33 @@ namespace OOD_Project
             // Alpine Drivers
             t10.DriversList.Add(d19);
             t10.DriversList.Add(d20);
+
+            // Adding all teams to a list
+            allTeams.Add(t1);
+            allTeams.Add(t2);
+            allTeams.Add(t3);
+            allTeams.Add(t4);
+            allTeams.Add(t5);
+            allTeams.Add(t6);
+            allTeams.Add(t7);
+            allTeams.Add(t8);
+            allTeams.Add(t9);
+            allTeams.Add(t10);
+
+            // Using the list to populate the text box
+            lbxTeams.ItemsSource = allTeams;
+        }
+
+        private void lbxTeams_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Team selectedTeam = lbxTeams.SelectedItem as Team;
+
+            if (selectedTeam != null)
+            {
+                lbxDrivers.ItemsSource = selectedTeam.DriversList;
+
+                tblkTeamInfo.Text = string.Format($"Year of first race: {selectedTeam.FirstRace}" + $"\nConstructors championships won: {selectedTeam.ChampionshipsWon}");
+            }
         }
     }
 }

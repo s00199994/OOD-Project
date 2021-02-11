@@ -10,16 +10,16 @@ namespace OOD_Project
     {
         public string TeamName { get; set; }
 
-        public int YearFormed { get; set; }
+        public int FirstRace { get; set; }
 
         public int ChampionshipsWon { get; set; }
 
         public List<Drivers> DriversList { get; set; }
 
-        public Team(string teamName, int yearFormed, int championshipsWon)
+        public Team(string teamName, int firstRace, int championshipsWon)
         {
             TeamName = teamName;
-            YearFormed = yearFormed;
+            FirstRace = firstRace;
             ChampionshipsWon = championshipsWon;
 
             DriversList = new List<Drivers>();
