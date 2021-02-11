@@ -125,7 +125,14 @@ namespace OOD_Project
 
         private void btnStart_TouchDown(object sender, TouchEventArgs e)
         {
-            
+            List<Questions> allQuestions = new List<Questions>();
+            List<Answers> allAnswers = new List<Answers>();
+
+            Questions q1 = new Questions("How many Constructors Championships has Ferrari won?");
+            Questions q2 = new Questions("Who is the most successful Formula 1 Driver ever?");
+            Questions q3 = new Questions("Which driver fatally crashed at the 1994 Italian GP at Imola?");
+
+            Answers a1 = new Answers("10");
         }
     }
 }

@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace OOD_Project
 {
-    class Quiz
+    class Answers
     {
-        public string Question { get; set; }
-
         public string Answer { get; set; }
+        public string Answer2 { get; set; }
 
-        public Quiz (string answer, string question)
+        public Answers(string answer)
         {
-            Question = question;
             Answer = answer;
         }
 
