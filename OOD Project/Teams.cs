@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOD_Project
 {
-    class Team
+    class Team :IComparable
     {
         public string TeamName { get; set; }
 
@@ -33,6 +33,13 @@ namespace OOD_Project
         public override string ToString()
         {
             return TeamName;
+        }
+
+        public int CompareTo(object obj)
+        {
+            Team otherTeam = obj as Team;
+
+            return this.TeamName.CompareTo(otherTeam.TeamName);
         }
 
     }

@@ -122,5 +122,10 @@ namespace OOD_Project
                 tblkTeamInfo.Text = string.Format($"Year of first race: {selectedTeam.FirstRace}" + $"\nConstructors championships won: {selectedTeam.ChampionshipsWon}");
             }
         }
+
+        private void btnStart_TouchDown(object sender, TouchEventArgs e)
+        {
+            
+        }
     }
 }
