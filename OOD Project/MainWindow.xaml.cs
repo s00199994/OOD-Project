@@ -113,26 +113,58 @@ namespace OOD_Project
 
         private void lbxTeams_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            // Changing the content of the team info and current drivers to fit with the selected team
             Team selectedTeam = lbxTeams.SelectedItem as Team;
 
             if (selectedTeam != null)
             {
                 lbxDrivers.ItemsSource = selectedTeam.DriversList;
 
+                // Formatting the content of the team info box
                 tblkTeamInfo.Text = string.Format($"Year of first race: {selectedTeam.FirstRace}" + $"\nConstructors championships won: {selectedTeam.ChampionshipsWon}");
             }
         }
 
-        private void btnStart_TouchDown(object sender, TouchEventArgs e)
+        private void btnStart_Click(object sender, RoutedEventArgs e)
         {
+            // Creating a list of questions
             List<Questions> allQuestions = new List<Questions>();
-            List<Answers> allAnswers = new List<Answers>();
 
+            // Creating the questions
             Questions q1 = new Questions("How many Constructors Championships has Ferrari won?");
             Questions q2 = new Questions("Who is the most successful Formula 1 Driver ever?");
-            Questions q3 = new Questions("Which driver fatally crashed at the 1994 Italian GP at Imola?");
+            Questions q3 = new Questions("Which driver currently holds the record for most race starts?");
 
-            Answers a1 = new Answers("10");
+            // Creating the answers
+            Answers q1a = new Answers("10");
+            Answers q1b = new Answers("16");
+            Answers q1c = new Answers("14");
+            Answers q2a = new Answers("Michael Schumacher");
+            Answers q2b = new Answers("Ayrton Senna");
+            Answers q2c = new Answers("Lewis Hamilton");
+            Answers q3a = new Answers("Kimi Raikkonen");
+            Answers q3b = new Answers("Rubens Barrichello");
+            Answers q3c = new Answers("Fernando Alonso");
+
+            // Adding all the answers to the list that is held within the Questions class
+            q1.allAnswers.Add(q1a);
+            q1.allAnswers.Add(q1b);
+            q1.allAnswers.Add(q1c);
+
+            q2.allAnswers.Add(q2a);
+            q2.allAnswers.Add(q2b);
+            q2.allAnswers.Add(q2c);
+
+            q3.allAnswers.Add(q3a);
+            q3.allAnswers.Add(q3b);
+            q3.allAnswers.Add(q3c);
+
+            // Adding the questions to the questions list
+            allQuestions.Add(q1);
+            allQuestions.Add(q2);
+            allQuestions.Add(q3);
+
+            lbxQuestions.ItemsSource = allQuestions;
         }
     }
 }

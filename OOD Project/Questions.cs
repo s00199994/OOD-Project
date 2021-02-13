@@ -10,9 +10,13 @@ namespace OOD_Project
     {
         public string Question { get; set; }
 
+        public List<Answers> allAnswers = new List<Answers>();
+
         public Questions(string question)
         {
             Question = question;
+
+            allAnswers = new List<Answers>();
         }
 
         public override string ToString()
