@@ -56,7 +56,7 @@ namespace OOD_Project
             Drivers d11 = new Drivers("Pierre Gasly", 64, 2, false);
             Drivers d12 = new Drivers("Yuki Tsunoda", 0, 0, false);
             Drivers d13 = new Drivers("Kimi Raikkonen", 332, 103, true);
-            Drivers d14 = new Drivers("Anotnio Giovinazzi", 40, 0, false);
+            Drivers d14 = new Drivers("Antonio Giovinazzi", 40, 0, false);
             Drivers d15 = new Drivers("Mick Schumacher", 0, 0, false);
             Drivers d16 = new Drivers("Nikita Mazepin", 0, 0, false);
             Drivers d17 = new Drivers("George Russell", 38, 0, false);
@@ -164,7 +164,10 @@ namespace OOD_Project
             allQuestions.Add(q2);
             allQuestions.Add(q3);
 
-            lbxQuestions.ItemsSource = allQuestions;
+            Questions selectedQuestion = q1;
+            tblkQuestion.Text = selectedQuestion.Question;
+
+            btnA.Content = selectedQuestion.allAnswers[0].Answer;
         }
     }
 }

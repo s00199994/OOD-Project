@@ -18,7 +18,7 @@
         <RadioButton x:Name="btnC" Content="[OPTION C]" HorizontalAlignment="Left" Margin="560,371,0,0" VerticalAlignment="Top" FontSize="14"/>
         <TextBlock x:Name="tblkTeamInfo" HorizontalAlignment="Left" Margin="293,99,0,0" TextWrapping="Wrap" Text="Team Info" VerticalAlignment="Top" FontWeight="Bold" Height="68" Width="169"/>
         <Button x:Name="btnStart" Content="Button" HorizontalAlignment="Left" Margin="352,298,0,0" VerticalAlignment="Top" Width="75" Click="btnStart_Click"/>
-        <ListBox x:Name="lbxQuestions" HorizontalAlignment="Left" Height="29" Margin="155,323,0,0" VerticalAlignment="Top" Width="490"/>
+        <TextBlock x:Name="tblkQuestion" HorizontalAlignment="Left" Margin="92,334,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="553"/>
 
     </Grid>
 </Window>
