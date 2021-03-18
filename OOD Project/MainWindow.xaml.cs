@@ -127,6 +127,8 @@ namespace OOD_Project
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
+            // Declaring a random number to use later in my switch statement
+            Random rand = new Random();
             // Creating a list of questions
             List<Questions> allQuestions = new List<Questions>();
 
@@ -164,10 +166,39 @@ namespace OOD_Project
             allQuestions.Add(q2);
             allQuestions.Add(q3);
 
-            Questions selectedQuestion = q1;
-            tblkQuestion.Text = selectedQuestion.Question;
+            // Getting my random number to find 
+            int questionNum = rand.Next(1, 3);
 
-            btnA.Content = selectedQuestion.allAnswers[0].Answer;
+            Questions selectedQuestion;
+
+            // Using a switch statement to change what the question and answers will be based on the result from the random number
+            switch (questionNum)
+            {
+                case 1:
+                    selectedQuestion = q1;
+                    tblkQuestion.Text = selectedQuestion.Question;
+
+                    btnA.Content = selectedQuestion.allAnswers[0].Answer;
+                    btnB.Content = selectedQuestion.allAnswers[1].Answer;
+                    btnC.Content = selectedQuestion.allAnswers[2].Answer;
+                    break;
+                case 2:
+                    selectedQuestion = q2;
+                    tblkQuestion.Text = selectedQuestion.Question;
+
+                    btnA.Content = selectedQuestion.allAnswers[0].Answer;
+                    btnB.Content = selectedQuestion.allAnswers[1].Answer;
+                    btnC.Content = selectedQuestion.allAnswers[2].Answer;
+                    break;
+                case 3:
+                    selectedQuestion = q3;
+                    tblkQuestion.Text = selectedQuestion.Question;
+
+                    btnA.Content = selectedQuestion.allAnswers[0].Answer;
+                    btnB.Content = selectedQuestion.allAnswers[1].Answer;
+                    btnC.Content = selectedQuestion.allAnswers[2].Answer;
+                    break;
+            }
         }
     }
 }
