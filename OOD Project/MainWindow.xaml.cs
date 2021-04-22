@@ -21,6 +21,7 @@ namespace OOD_Project
     public partial class MainWindow : Window
     {
         List<Team> allTeams = new List<Team>();
+        Questions currentQuestion;
         public MainWindow()
         {
             InitializeComponent();
@@ -28,18 +29,6 @@ namespace OOD_Project
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Creating teams
-
-            Team t1 = new Team("Mercedes", 2010, 9);
-            Team t2 = new Team("Ferrari", 1950, 16);
-            Team t3 = new Team("Red Bull", 2005, 4);
-            Team t4 = new Team("McLaren", 1966, 8);
-            Team t5 = new Team("Aston Martin", 2021, 0);
-            Team t6 = new Team("Alpha Tauri", 2020, 0);
-            Team t7 = new Team("Alfa Romeo", 2019, 0);
-            Team t8 = new Team("HAAS", 2016, 0);
-            Team t9 = new Team("Williams", 1977, 9);
-            Team t10 = new Team("Alpine", 1977, 2);
 
             // Creating driver objects
 
@@ -64,51 +53,51 @@ namespace OOD_Project
             Drivers d19 = new Drivers("Fernando Alonso", 314, 97, true);
             Drivers d20 = new Drivers("Esteban Ocon", 67, 1, false);
 
-            // Mercedes Drivers
-            t1.DriversList.Add(d1);
-            t1.DriversList.Add(d2);
-            //Ferrari Drivers
-            t2.DriversList.Add(d3);
-            t2.DriversList.Add(d4);
-            // Red Bull Drivers
-            t3.DriversList.Add(d5);
-            t3.DriversList.Add(d6);
-            // McLaren Drivers
-            t4.DriversList.Add(d7);
-            t4.DriversList.Add(d8);
-            // Aston Martin Drivers
-            t5.DriversList.Add(d9);
-            t5.DriversList.Add(d10);
-            //Alpha Tauri Drivers
-            t6.DriversList.Add(d11);
-            t6.DriversList.Add(d12);
-            // Alfa Romeo Drivers
-            t7.DriversList.Add(d13);
-            t7.DriversList.Add(d14);
-            // HAAS Drivers
-            t8.DriversList.Add(d15);
-            t8.DriversList.Add(d16);
-            // Williams Drivers
-            t9.DriversList.Add(d17);
-            t9.DriversList.Add(d18);
-            // Alpine Drivers
-            t10.DriversList.Add(d19);
-            t10.DriversList.Add(d20);
+            //// Mercedes Drivers
+            //t1.DriversList.Add(d1);
+            //t1.DriversList.Add(d2);
+            ////Ferrari Drivers
+            //t2.DriversList.Add(d3);
+            //t2.DriversList.Add(d4);
+            //// Red Bull Drivers
+            //t3.DriversList.Add(d5);
+            //t3.DriversList.Add(d6);
+            //// McLaren Drivers
+            //t4.DriversList.Add(d7);
+            //t4.DriversList.Add(d8);
+            //// Aston Martin Drivers
+            //t5.DriversList.Add(d9);
+            //t5.DriversList.Add(d10);
+            ////Alpha Tauri Drivers
+            //t6.DriversList.Add(d11);
+            //t6.DriversList.Add(d12);
+            //// Alfa Romeo Drivers
+            //t7.DriversList.Add(d13);
+            //t7.DriversList.Add(d14);
+            //// HAAS Drivers
+            //t8.DriversList.Add(d15);
+            //t8.DriversList.Add(d16);
+            //// Williams Drivers
+            //t9.DriversList.Add(d17);
+            //t9.DriversList.Add(d18);
+            //// Alpine Drivers
+            //t10.DriversList.Add(d19);
+            //t10.DriversList.Add(d20);
 
-            // Adding all teams to a list
-            allTeams.Add(t1);
-            allTeams.Add(t2);
-            allTeams.Add(t3);
-            allTeams.Add(t4);
-            allTeams.Add(t5);
-            allTeams.Add(t6);
-            allTeams.Add(t7);
-            allTeams.Add(t8);
-            allTeams.Add(t9);
-            allTeams.Add(t10);
+            //// Adding all teams to a list
+            //allTeams.Add(t1);
+            //allTeams.Add(t2);
+            //allTeams.Add(t3);
+            //allTeams.Add(t4);
+            //allTeams.Add(t5);
+            //allTeams.Add(t6);
+            //allTeams.Add(t7);
+            //allTeams.Add(t8);
+            //allTeams.Add(t9);
+            //allTeams.Add(t10);
 
-            // Using the list to populate the text box
-            lbxTeams.ItemsSource = allTeams;
+            //// Using the list to populate the text box
+            //lbxTeams.ItemsSource = allTeams;
         }
 
         private void lbxTeams_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -152,24 +141,27 @@ namespace OOD_Project
             q1.allAnswers.Add(q1a);
             q1.allAnswers.Add(q1b);
             q1.allAnswers.Add(q1c);
+            q1.CorrectAnswer = q1b;
 
             q2.allAnswers.Add(q2a);
             q2.allAnswers.Add(q2b);
             q2.allAnswers.Add(q2c);
+            q2.CorrectAnswer = q2c;
 
             q3.allAnswers.Add(q3a);
             q3.allAnswers.Add(q3b);
             q3.allAnswers.Add(q3c);
+            q3.CorrectAnswer = q3a;
 
             // Adding the questions to the questions list
             allQuestions.Add(q1);
             allQuestions.Add(q2);
             allQuestions.Add(q3);
 
-            // Getting my random number to find 
+            // Getting my random number to select a question
             int questionNum = rand.Next(1, 3);
 
-            Questions selectedQuestion;
+            Questions selectedQuestion = q1;
 
             // Using a switch statement to change what the question and answers will be based on the result from the random number
             switch (questionNum)
@@ -181,6 +173,7 @@ namespace OOD_Project
                     btnA.Content = selectedQuestion.allAnswers[0].Answer;
                     btnB.Content = selectedQuestion.allAnswers[1].Answer;
                     btnC.Content = selectedQuestion.allAnswers[2].Answer;
+
                     break;
                 case 2:
                     selectedQuestion = q2;
@@ -189,6 +182,7 @@ namespace OOD_Project
                     btnA.Content = selectedQuestion.allAnswers[0].Answer;
                     btnB.Content = selectedQuestion.allAnswers[1].Answer;
                     btnC.Content = selectedQuestion.allAnswers[2].Answer;
+
                     break;
                 case 3:
                     selectedQuestion = q3;
@@ -197,8 +191,32 @@ namespace OOD_Project
                     btnA.Content = selectedQuestion.allAnswers[0].Answer;
                     btnB.Content = selectedQuestion.allAnswers[1].Answer;
                     btnC.Content = selectedQuestion.allAnswers[2].Answer;
+
                     break;
             }
+
+            currentQuestion = selectedQuestion;
+
+        }
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+
+            int index = -1;
+            //get user selectiong - radio button they clicked
+            if (btnA.IsChecked.Value == true)
+                index = 0;
+
+            //get question object
+            Answers userChoice = currentQuestion.allAnswers[index];
+
+            //compare ans
+            if (userChoice == currentQuestion.CorrectAnswer)
+                //then user has chosen the correct answer
+                MessageBox.Show("Correct");
+            else
+                //user is incorrect
+                MessageBox.Show("Incorrect");
         }
     }
 }

@@ -12,6 +12,8 @@ namespace OOD_Project
 
         public List<Answers> allAnswers = new List<Answers>();
 
+        public Answers CorrectAnswer{ get; set; }
+
         public Questions(string question)
         {
             Question = question;
