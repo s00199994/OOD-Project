@@ -7,7 +7,7 @@ using System.Data.Entity;
 
 namespace OOD_Project
 {
-    public class Team : IComparable
+    public class TeamInfo : IComparable
     {
         public int TeamID { get; set; }
         public string TeamName { get; set; }
@@ -17,8 +17,8 @@ namespace OOD_Project
         public int ChampionshipsWon { get; set; }
 
         public virtual List<Drivers> DriversList { get; set; }
-        public Team() {}
-        public Team(string teamName, int firstRace, int championshipsWon)
+        public TeamInfo() {}
+        public TeamInfo(string teamName, int firstRace, int championshipsWon)
         {
             TeamName = teamName;
             FirstRace = firstRace;

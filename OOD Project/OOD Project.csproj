@@ -19,6 +19,21 @@
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -73,8 +88,32 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Answers.cs" />
+    <Compile Include="C__MigrationHistory.cs">
+      <DependentUpon>F1TeamData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Driver.cs">
+      <DependentUpon>F1TeamData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Drivers.cs" />
+    <Compile Include="F1TeamData.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>F1TeamData.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F1TeamData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>F1TeamData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="F1TeamData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>F1TeamData.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Questions.cs" />
+    <Compile Include="Team.cs">
+      <DependentUpon>F1TeamData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Teams.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -107,6 +146,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="F1TeamData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>F1TeamData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="F1TeamData.edmx.diagram">
+      <DependentUpon>F1TeamData.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -115,6 +161,40 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="F1TeamData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>F1TeamData.edmx</DependentUpon>
+      <LastGenOutput>F1TeamData.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="F1TeamData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>F1TeamData.edmx</DependentUpon>
+      <LastGenOutput>F1TeamData.cs</LastGenOutput>
+    </Content>
+    <Content Include="TeamData.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TeamData_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>TeamData.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

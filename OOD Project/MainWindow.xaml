@@ -7,28 +7,46 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
 
+    <Window.Resources>
+        <Style x:Key="Radiobtn" TargetType="RadioButton">
+            <Setter Property="BorderBrush" Value="Red"/>
+        </Style>
+
+        <Style x:Key="StandardBtn" TargetType="Button">
+            <Setter Property="BorderBrush" Value="Aquamarine"/>
+            <Setter Property="Background" Value="#FF5088FF"/>
+            <Setter Property="Foreground" Value="Black"/>
+            <Setter Property="FontFamily" Value="Verdana"/>
+            <Setter Property="BorderThickness" Value="2"/>
+        </Style>
+
+        <Style x:Key="StandardTxtblk" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Verdana"/>
+        </Style>
+    </Window.Resources>
+
     <TabControl TabStripPlacement="Top">
         <TabItem Name="TeamsInfo" Header="Team Info" Width="100">
             <Grid>
-                <TextBlock HorizontalAlignment="Left" Margin="50,20,0,0" TextWrapping="Wrap" Text="Formula 1 App" VerticalAlignment="Top" Height="28" Width="143" FontSize="20" FontWeight="Bold"/>
-                <TextBlock HorizontalAlignment="Left" Margin="92,74,0,0" TextWrapping="Wrap" Text="Teams" VerticalAlignment="Top" FontWeight="Bold" Width="46" Height="22" FontSize="14"/>
-                <ListBox x:Name="lbxTeams" HorizontalAlignment="Left" Height="178" Margin="92,99,0,0" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.492,0.491" SelectionChanged="lbxTeams_SelectionChanged"/>
-                <TextBlock HorizontalAlignment="Left" Margin="489,74,0,0" TextWrapping="Wrap" Text="Current Drivers" VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+                <TextBlock HorizontalAlignment="Left" Margin="50,20,0,0" TextWrapping="Wrap" Text="Formula 1 App" VerticalAlignment="Top" Height="28" Width="143" FontSize="20" FontWeight="Bold" Style="{StaticResource StandardTxtblk}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="92,74,0,0" TextWrapping="Wrap" Text="Teams" VerticalAlignment="Top" FontWeight="Bold" Width="46" Height="22" FontSize="14" Style="{StaticResource StandardTxtblk}"/>
+                <ListBox x:Name="lbxTeams" HorizontalAlignment="Left" Height="175" Margin="92,99,0,0" VerticalAlignment="Top" Width="172" RenderTransformOrigin="0.492,0.491" SelectionChanged="lbxTeams_SelectionChanged" DisplayMemberPath="TeamName"/>
+                <TextBlock HorizontalAlignment="Left" Margin="489,74,0,0" TextWrapping="Wrap" Text="Current Drivers" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Style="{StaticResource StandardTxtblk}"/>
                 <ListBox x:Name="lbxDrivers" HorizontalAlignment="Left" Height="54" Margin="489,99,0,0" VerticalAlignment="Top" Width="156"/>
-                <TextBlock x:Name="tblkTeamInfo" HorizontalAlignment="Left" Margin="293,99,0,0" TextWrapping="Wrap" Text="Team Info" VerticalAlignment="Top" FontWeight="Bold" Height="68" Width="169"/>
+                <TextBlock x:Name="tblkTeamInfo" HorizontalAlignment="Left" Margin="293,99,0,0" TextWrapping="Wrap" Text="Team Info" VerticalAlignment="Top" FontWeight="Bold" Height="68" Width="169" Style="{StaticResource StandardTxtblk}"/>
             </Grid>
         </TabItem>
 
         <TabItem Name="Quiz" Header="Quiz" Width="100">
             <Grid>
-                <TextBlock HorizontalAlignment="Left" Margin="315,23,0,0" TextWrapping="Wrap" Text="Test Your Knowledge" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" RenderTransformOrigin="0.492,0.399" Width="142" Height="20"/>
-                <RadioButton x:Name="btnA" Content="[OPTION A]" HorizontalAlignment="Left" Margin="102,150,0,0" VerticalAlignment="Top" FontSize="14"/>
-                <RadioButton x:Name="btnB" Content="[OPTION B]" HorizontalAlignment="Left" Margin="337,150,0,0" VerticalAlignment="Top" FontSize="14"/>
-                <RadioButton x:Name="btnC" Content="[OPTION C]" HorizontalAlignment="Left" Margin="565,150,0,0" VerticalAlignment="Top" FontSize="14"/>
-                <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="352,48,0,0" VerticalAlignment="Top" Width="75" Click="btnStart_Click"/>
-                <TextBlock x:Name="tblkQuestion" HorizontalAlignment="Left" Margin="102,73,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="553"/>
-                <Button x:Name="btnSubmit" Content="Submit Answer" HorizontalAlignment="Left" Margin="337,191,0,0" VerticalAlignment="Top" Width="102" Height="24" Click="btnSubmit_Click"/>
-                <TextBlock x:Name="answerChecker" HorizontalAlignment="Left" Margin="352,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+                <TextBlock HorizontalAlignment="Left" Margin="315,23,0,0" TextWrapping="Wrap" Text="Test Your Knowledge" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" RenderTransformOrigin="0.492,0.399" Width="174" Height="20" Style="{StaticResource StandardTxtblk}"/>
+                <RadioButton x:Name="btnA" Content="[OPTION A]" HorizontalAlignment="Left" Margin="102,150,0,0" VerticalAlignment="Top" FontSize="14" Style="{StaticResource Radiobtn}"/>
+                <RadioButton x:Name="btnB" Content="[OPTION B]" HorizontalAlignment="Left" Margin="337,150,0,0" VerticalAlignment="Top" FontSize="14" Style="{StaticResource Radiobtn}"/>
+                <RadioButton x:Name="btnC" Content="[OPTION C]" HorizontalAlignment="Left" Margin="565,150,0,0" VerticalAlignment="Top" FontSize="14" Style="{StaticResource Radiobtn}"/>
+                <Button x:Name="btnStart" Content="Start" HorizontalAlignment="Left" Margin="352,48,0,0" VerticalAlignment="Top" Width="75" Click="btnStart_Click" Style="{StaticResource StandardBtn}"/>
+                <TextBlock x:Name="tblkQuestion" HorizontalAlignment="Left" Margin="102,73,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="553" Style="{StaticResource StandardTxtblk}"/>
+                <Button x:Name="btnSubmit" Content="Submit Answer" HorizontalAlignment="Left" Margin="337,191,0,0" VerticalAlignment="Top" Width="102" Height="24" Click="btnSubmit_Click" Style="{StaticResource StandardBtn}"/>
+                <TextBlock x:Name="answerChecker" HorizontalAlignment="Left" Margin="352,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource StandardTxtblk}"/>
             </Grid>
         </TabItem>
     </TabControl>

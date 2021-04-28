@@ -20,7 +20,8 @@ namespace OOD_Project
     /// </summary>
     public partial class MainWindow : Window
     {
-        List<Team> allTeams = new List<Team>();
+        TeamDataEntities db = new TeamDataEntities();
+
         Questions currentQuestion;
         public MainWindow()
         {
@@ -29,75 +30,11 @@ namespace OOD_Project
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            // LINQ Query to populate the teams listbox
+            var query = from t in db.Teams
+                        select t;
 
-            // Creating driver objects
-
-            Drivers d1 = new Drivers("Lewis Hamilton", 266, 165, true);
-            Drivers d2 = new Drivers("Valtteri Bottas", 157, 56, false);
-            Drivers d3 = new Drivers("Charles LeClerc", 59, 12, false);
-            Drivers d4 = new Drivers("Carlos Sainz", 119, 2, false);
-            Drivers d5 = new Drivers("Max Verstappen", 119, 42, false);
-            Drivers d6 = new Drivers("Sergio Perez", 195, 10, false);
-            Drivers d7 = new Drivers("Daniel Ricciardo", 188, 31, false);
-            Drivers d8 = new Drivers("Lando Norris", 38, 1, false);
-            Drivers d9 = new Drivers("Sebastian Vettel", 258, 121, true);
-            Drivers d10 = new Drivers("Lance Stroll", 79, 3, false);
-            Drivers d11 = new Drivers("Pierre Gasly", 64, 2, false);
-            Drivers d12 = new Drivers("Yuki Tsunoda", 0, 0, false);
-            Drivers d13 = new Drivers("Kimi Raikkonen", 332, 103, true);
-            Drivers d14 = new Drivers("Antonio Giovinazzi", 40, 0, false);
-            Drivers d15 = new Drivers("Mick Schumacher", 0, 0, false);
-            Drivers d16 = new Drivers("Nikita Mazepin", 0, 0, false);
-            Drivers d17 = new Drivers("George Russell", 38, 0, false);
-            Drivers d18 = new Drivers("Nicholas Latifi", 17, 0, false);
-            Drivers d19 = new Drivers("Fernando Alonso", 314, 97, true);
-            Drivers d20 = new Drivers("Esteban Ocon", 67, 1, false);
-
-            //// Mercedes Drivers
-            //t1.DriversList.Add(d1);
-            //t1.DriversList.Add(d2);
-            ////Ferrari Drivers
-            //t2.DriversList.Add(d3);
-            //t2.DriversList.Add(d4);
-            //// Red Bull Drivers
-            //t3.DriversList.Add(d5);
-            //t3.DriversList.Add(d6);
-            //// McLaren Drivers
-            //t4.DriversList.Add(d7);
-            //t4.DriversList.Add(d8);
-            //// Aston Martin Drivers
-            //t5.DriversList.Add(d9);
-            //t5.DriversList.Add(d10);
-            ////Alpha Tauri Drivers
-            //t6.DriversList.Add(d11);
-            //t6.DriversList.Add(d12);
-            //// Alfa Romeo Drivers
-            //t7.DriversList.Add(d13);
-            //t7.DriversList.Add(d14);
-            //// HAAS Drivers
-            //t8.DriversList.Add(d15);
-            //t8.DriversList.Add(d16);
-            //// Williams Drivers
-            //t9.DriversList.Add(d17);
-            //t9.DriversList.Add(d18);
-            //// Alpine Drivers
-            //t10.DriversList.Add(d19);
-            //t10.DriversList.Add(d20);
-
-            //// Adding all teams to a list
-            //allTeams.Add(t1);
-            //allTeams.Add(t2);
-            //allTeams.Add(t3);
-            //allTeams.Add(t4);
-            //allTeams.Add(t5);
-            //allTeams.Add(t6);
-            //allTeams.Add(t7);
-            //allTeams.Add(t8);
-            //allTeams.Add(t9);
-            //allTeams.Add(t10);
-
-            //// Using the list to populate the text box
-            //lbxTeams.ItemsSource = allTeams;
+            lbxTeams.ItemsSource = query.ToList();
         }
 
         private void lbxTeams_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -105,9 +42,16 @@ namespace OOD_Project
             // Changing the content of the team info and current drivers to fit with the selected team
             Team selectedTeam = lbxTeams.SelectedItem as Team;
 
+            int TeamID = selectedTeam.TeamID;
+
             if (selectedTeam != null)
             {
-                lbxDrivers.ItemsSource = selectedTeam.DriversList;
+                // LINQ Query to match the drivers to their team via the TeamID
+                var query2 = from d in db.Drivers
+                             where d.TeamID == TeamID
+                             select d.Name;
+
+                lbxDrivers.ItemsSource = query2.ToList();
 
                 // Formatting the content of the team info box
                 tblkTeamInfo.Text = string.Format($"Year of first race: {selectedTeam.FirstRace}" + $"\nConstructors championships won: {selectedTeam.ChampionshipsWon}");
@@ -201,22 +145,37 @@ namespace OOD_Project
 
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
-
             int index = -1;
             //get user selectiong - radio button they clicked
             if (btnA.IsChecked.Value == true)
+            {
                 index = 0;
+            }
+
+            if (btnB.IsChecked.Value == true)
+            {
+                index = 1;
+            }
+
+            if (btnC.IsChecked.Value == true)
+            {
+                index = 2;
+            }
 
             //get question object
             Answers userChoice = currentQuestion.allAnswers[index];
 
             //compare ans
             if (userChoice == currentQuestion.CorrectAnswer)
+            {
                 //then user has chosen the correct answer
                 MessageBox.Show("Correct");
+            }
             else
+            {
                 //user is incorrect
                 MessageBox.Show("Incorrect");
+            }
         }
     }
 }

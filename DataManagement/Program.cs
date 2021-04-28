@@ -28,26 +28,26 @@ namespace DataManagement
                 Team t10 = new Team() { TeamID = 10, TeamName = "Alpine", FirstRace = 1977, ChampionshipsWon = 2 };
 
                 // Creating driver objects
-                Drivers d1 = new Drivers() { Name = "Lewis Hamilton", RacesEntered = 266, Podiums = 165, Champion = true };
-                Drivers d2 = new Drivers() { Name = "Valtteri Bottas", RacesEntered = 157, Podiums = 56, Champion = false };
-                Drivers d3 = new Drivers() { Name = "Charles LeClerc", RacesEntered = 59, Podiums = 12, Champion = false };
-                Drivers d4 = new Drivers() { Name = "Carlos Sainz", RacesEntered = 119, Podiums = 2, Champion = false };
-                Drivers d5 = new Drivers() { Name = "Max Verstappen", RacesEntered = 119, Podiums = 42, Champion = false };
-                Drivers d6 = new Drivers() { Name = "Sergio Perez", RacesEntered = 195, Podiums = 10, Champion = false };
-                Drivers d7 = new Drivers() { Name = "Daniel Ricciardo", RacesEntered = 188, Podiums = 31, Champion = false };
-                Drivers d8 = new Drivers() { Name = "Lando Norris", RacesEntered = 38, Podiums = 1, Champion = false };
-                Drivers d9 = new Drivers() { Name = "Sebastian Vettel", RacesEntered = 258, Podiums = 121, Champion = true };
-                Drivers d10 = new Drivers() { Name = "Lance Stroll", RacesEntered = 79, Podiums = 3, Champion = false };
-                Drivers d11 = new Drivers() { Name = "Pierre Gasly", RacesEntered = 64, Podiums = 2, Champion = false };
-                Drivers d12 = new Drivers() { Name = "Yuki Tsunoda", RacesEntered = 2, Podiums = 0, Champion = false };
-                Drivers d13 = new Drivers() { Name = "Kimi Raikkonen", RacesEntered = 332, Podiums = 103, Champion = true };
-                Drivers d14 = new Drivers() { Name = "Antonio Giovinazzi", RacesEntered = 40, Podiums = 0, Champion = false };
-                Drivers d15 = new Drivers() { Name = "Mick Schumacher", RacesEntered = 2, Podiums = 0, Champion = false };
-                Drivers d16 = new Drivers() { Name = "Nikita Mazepin", RacesEntered = 2, Podiums = 0, Champion = false };
-                Drivers d17 = new Drivers() { Name = "George Russell", RacesEntered = 38, Podiums = 0, Champion = false };
-                Drivers d18 = new Drivers() { Name = "Nicholas Latifi", RacesEntered = 17, Podiums = 0, Champion = false };
-                Drivers d19 = new Drivers() { Name = "Fernando Alonso", RacesEntered = 314, Podiums = 97, Champion = true };
-                Drivers d20 = new Drivers() { Name = "Esteban Ocon", RacesEntered = 67, Podiums = 1,Champion = false };
+                Drivers d1 = new Drivers() { Name = "Lewis Hamilton", RacesEntered = 266, Podiums = 165, Champion = true, TeamID = 1 };
+                Drivers d2 = new Drivers() { Name = "Valtteri Bottas", RacesEntered = 157, Podiums = 56, Champion = false, TeamID = 1 };
+                Drivers d3 = new Drivers() { Name = "Charles LeClerc", RacesEntered = 59, Podiums = 12, Champion = false, TeamID = 2 };
+                Drivers d4 = new Drivers() { Name = "Carlos Sainz", RacesEntered = 119, Podiums = 2, Champion = false, TeamID = 2 };
+                Drivers d5 = new Drivers() { Name = "Max Verstappen", RacesEntered = 119, Podiums = 42, Champion = false, TeamID = 3 };
+                Drivers d6 = new Drivers() { Name = "Sergio Perez", RacesEntered = 195, Podiums = 10, Champion = false, TeamID = 3 };
+                Drivers d7 = new Drivers() { Name = "Daniel Ricciardo", RacesEntered = 188, Podiums = 31, Champion = false, TeamID = 4 };
+                Drivers d8 = new Drivers() { Name = "Lando Norris", RacesEntered = 38, Podiums = 1, Champion = false, TeamID = 4 };
+                Drivers d9 = new Drivers() { Name = "Sebastian Vettel", RacesEntered = 258, Podiums = 121, Champion = true, TeamID = 5 };
+                Drivers d10 = new Drivers() { Name = "Lance Stroll", RacesEntered = 79, Podiums = 3, Champion = false, TeamID = 5 };
+                Drivers d11 = new Drivers() { Name = "Pierre Gasly", RacesEntered = 64, Podiums = 2, Champion = false, TeamID = 6 };
+                Drivers d12 = new Drivers() { Name = "Yuki Tsunoda", RacesEntered = 2, Podiums = 0, Champion = false, TeamID = 6 };
+                Drivers d13 = new Drivers() { Name = "Kimi Raikkonen", RacesEntered = 332, Podiums = 103, Champion = true, TeamID = 7 };
+                Drivers d14 = new Drivers() { Name = "Antonio Giovinazzi", RacesEntered = 40, Podiums = 0, Champion = false, TeamID = 7 };
+                Drivers d15 = new Drivers() { Name = "Mick Schumacher", RacesEntered = 2, Podiums = 0, Champion = false, TeamID = 8 };
+                Drivers d16 = new Drivers() { Name = "Nikita Mazepin", RacesEntered = 2, Podiums = 0, Champion = false, TeamID = 8 };
+                Drivers d17 = new Drivers() { Name = "George Russell", RacesEntered = 38, Podiums = 0, Champion = false, TeamID = 9 };
+                Drivers d18 = new Drivers() { Name = "Nicholas Latifi", RacesEntered = 17, Podiums = 0, Champion = false, TeamID = 9 };
+                Drivers d19 = new Drivers() { Name = "Fernando Alonso", RacesEntered = 314, Podiums = 97, Champion = true, TeamID = 10 };
+                Drivers d20 = new Drivers() { Name = "Esteban Ocon", RacesEntered = 67, Podiums = 1,Champion = false, TeamID = 10 };
 
                 Console.WriteLine("Adding to database...");
 
